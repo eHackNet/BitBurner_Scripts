@@ -1,7 +1,7 @@
-import VueApp from "/gui/lib/VueApp.js"
-import AppWindow from "/gui/component/Window.js"
-import UiButton from "/gui/component/UiButton.js"
-import UiSelect from "/gui/component/UiSelect.js"
+import VueApp from "/scripts/gui/lib/VueApp.js"
+import AppWindow from "/scripts/gui/component/Window.js"
+import UiButton from "/scripts/gui/component/UiButton.js"
+import UiSelect from "/scripts/gui/component/UiSelect.js"
 
 
 /**
