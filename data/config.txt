@@ -12,7 +12,25 @@
 		"/scripts/stats.js",
 		"/scripts/stocks.js",
 		"/scripts/terminal.js",
-		"/scripts/weaken.script"
+		"/scripts/weaken.script",
+		"/scripts/gui/component/BaseComponent.js",
+		"/scripts/gui/component/ProcessListItems.js",
+		"/scripts/gui/component/ServerListTree.js",
+		"/scripts/gui/component/UiButton.js",
+		"/scripts/gui/component/UiSelect.js",
+		"/scripts/gui/component/Window.js",
+		"/scripts/gui/css/toasts.js",
+		"/scripts/gui/lib/constants.js",
+		"/scripts/gui/lib/cracks.js",
+		"/scripts/gui/lib/processes.js",
+		"/scripts/gui/lib/Prompt.js",
+		"/scripts/gui/lib/servers.js",
+		"/scripts/gui/lib/terminal.js",
+		"/scripts/gui/lib/ToastManager.js",
+		"/scripts/gui/lib/VueApp.js",
+		"/scripts/gui/macros.js",
+		"/scripts/gui/process-list.js",
+		"/scripts/gui/server-list.js"
 		
 	]
 }
