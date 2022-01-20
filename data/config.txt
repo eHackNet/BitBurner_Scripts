@@ -13,7 +13,7 @@
 		"/scripts/stocks.js",
 		"/scripts/terminal.js",
 		"/scripts/weaken.script",
-		"/scripts/config/process-list.config.js",
+		"/scripts/gui/config/process-list.config.js",
 		"/scripts/gui/component/BaseComponent.js",
 		"/scripts/gui/component/ProcessListItems.js",
 		"/scripts/gui/component/ServerListTree.js",
