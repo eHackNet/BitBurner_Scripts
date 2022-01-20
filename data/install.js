@@ -27,7 +27,7 @@ export async function main (ns) {
 /** @param {NS} ns */
 async function fetchConfig (ns) {
 	try {
-		const dependenciesFile = `/gui/${configFile}`
+		const dependenciesFile = `/data/${configFile}`
 		ns.rm(dependenciesFile)
 		await ns.wget(`${baseUrl}${dependenciesFile}?ts=${+new Date()}`, dependenciesFile)
 		const config = JSON.parse(ns.read(dependenciesFile))
