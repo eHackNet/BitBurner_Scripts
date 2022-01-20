@@ -1,7 +1,7 @@
 /** @param {NS} ns **/
 export async function main(ns) {
 ns.exec("scripts/terminal.js", "home", 1); 
-ns.exec("nuburn/start.js", "home", 1);
+//ns.exec("nuburn/start.js", "home", 1);
 ns.disableLog("disableLog"); 
 ns.disableLog("exec");  
 ns.exec("scripts/seqOne.js", "home", 1);
