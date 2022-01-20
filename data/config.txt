@@ -1,5 +1,6 @@
 {
 	"dependencies": [
+    		"boot.js",
     		"/scripts/bit-lib.js",
 		"/scripts/docs.js",
 		"/scripts/grow.script",
