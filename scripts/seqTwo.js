@@ -4,9 +4,7 @@ export async function main(ns) {
 	ns.disableLog("ALL"); // Visual clarity
 
     // Welcome to the Sequencer part 2: Profit Observer
-    // This script is a little more complicated to explain easily, it dedicates high RAM servers to attack high profit servers
-    // This is also set and forget, your EXEs and hacking level are reacquired each second, so new servers are added without needing to reboot it
-    // Well I hope this brings you ideas, knowledge and or profits 😀
+    // This script is easy to explain, it reads the value of profit of each server.
 
 	async function log() {//The display
 	let serversFound = new Set();
