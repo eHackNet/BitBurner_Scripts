@@ -1,0 +1,17 @@
+{
+	"dependencies": [
+    "/scripts/bit-lib.js",
+		"/scripts/docs.js",
+		"/scripts/grow.script",
+		"/scripts/hack.script",
+		"/scripts/net-monitor.js",
+		"/scripts/scan.js",
+		"/scripts/secTwo.js",
+		"/scripts/seqOne.js",
+		"/scripts/stats.js",
+		"/scripts/stocks.js",
+		"/scripts/terminal.js",
+		"/scripts/weaken.script"
+		
+	]
+}
