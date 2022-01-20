@@ -1,4 +1,4 @@
-import { getRootedServers } from "/gui/lib/servers.js"
+import { getRootedServers } from "/scripts/gui/lib/servers.js"
 
 
 /**
