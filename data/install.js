@@ -1,4 +1,4 @@
-const repo = "PhilipArmstead/BitBurner-Scripts"
+const repo = "eHackNet/BitBurner_Scripts"
 const branch = "main"
 const baseUrl = `https://raw.githubusercontent.com/${repo}/${branch}/`
 const configFile = "config.txt"
