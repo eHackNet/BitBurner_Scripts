@@ -7,7 +7,7 @@
 		"/scripts/hack.script",
 		"/scripts/net-monitor.js",
 		"/scripts/scan.js",
-		"/scripts/secTwo.js",
+		"/scripts/seqTwo.js",
 		"/scripts/seqOne.js",
 		"/scripts/stats.js",
 		"/scripts/stocks.js",
