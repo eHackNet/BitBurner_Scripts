@@ -1,5 +1,5 @@
-import BaseComponent from "/gui/component/BaseComponent.js"
-import { icons } from "/gui/lib/constants.js"
+import BaseComponent from "/scripts/gui/component/BaseComponent.js"
+import { icons } from "/scripts/gui/lib/constants.js"
 
 const component = {
 	name: "server-list-tree",
