@@ -1,9 +1,9 @@
-import VueApp from "/gui/lib/VueApp.js"
-import AppWindow from "/gui/component/Window.js"
-import ServerListTree from "/gui/component/ServerListTree.js"
-import { canRootServer, getCracksOwned } from "/gui/lib/cracks.js"
-import { getServers, filterItem } from "/gui/lib/servers.js"
-import { inputTerminalCommands } from "/gui/lib/terminal.js"
+import VueApp from "/scripts/gui/lib/VueApp.js"
+import AppWindow from "/scripts/gui/component/Window.js"
+import ServerListTree from "/scripts/gui/component/ServerListTree.js"
+import { canRootServer, getCracksOwned } from "/scripts/gui/lib/cracks.js"
+import { getServers, filterItem } from "/scripts/gui/lib/servers.js"
+import { inputTerminalCommands } from "/scripts/gui/lib/terminal.js"
 
 
 /** @param {NS} ns **/
