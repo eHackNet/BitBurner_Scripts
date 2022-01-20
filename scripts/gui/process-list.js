@@ -1,8 +1,8 @@
-import VueApp from "/gui/lib/VueApp.js"
-import AppWindow from "/gui/component/Window.js"
-import ProcessListItems from "/gui/component/ProcessListItems.js"
-import { getProcessExpiryDetails, getRunningProcesses } from "/gui/lib/processes.js"
-import { processListPayloads } from "/gui/config/process-list.config.js"
+import VueApp from "/scripts/gui/lib/VueApp.js"
+import AppWindow from "/scripts/gui/component/Window.js"
+import ProcessListItems from "/scripts/gui/component/ProcessListItems.js"
+import { getProcessExpiryDetails, getRunningProcesses } from "/scripts/gui/lib/processes.js"
+import { processListPayloads } from "/scripts/gui/config/process-list.config.js"
 
 
 /** @param {NS} ns **/
