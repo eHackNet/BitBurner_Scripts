@@ -1,13 +1,13 @@
 /** @param {NS} ns **/
 export async function main(ns) {
-ns.exec("terminal.js", "home", 1); 
+ns.exec("scripts/terminal.js", "home", 1); 
 ns.exec("nuburn/start.js", "home", 1);
 ns.disableLog("disableLog"); 
 ns.disableLog("exec");  
-ns.exec("autofarm.js", "home", 1);
-ns.exec("autofarm2.js", "home", 1);
-ns.exec("stats.js", "home", 1);
-ns.exec("stocks.js", "home", 1);
+ns.exec("scripts/seqOne.js", "home", 1);
+ns.exec("scripts/seqTwo.js", "home", 1);
+ns.exec("scripts/stats.js", "home", 1);
+ns.exec("scripts/stocks.js", "home", 1);
 //ns.exec("netmap.js", "home", 1);
 //ns.exec("gui/server-list.js", "home", 1);
 ns.exec("gui/process-list.js", "home", 1);
