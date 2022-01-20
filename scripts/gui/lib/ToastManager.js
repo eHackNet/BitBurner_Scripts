@@ -1,4 +1,4 @@
-import css from "/gui/css/toasts.js"
+import css from "/scripts/gui/css/toasts.js"
 
 
 export default class {
