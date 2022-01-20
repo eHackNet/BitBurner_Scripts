@@ -28,6 +28,7 @@
 		"/scripts/gui/lib/terminal.js",
 		"/scripts/gui/lib/ToastManager.js",
 		"/scripts/gui/lib/VueApp.js",
+		"/scripts/config/process-list.config.js",
 		"/scripts/gui/macros.js",
 		"/scripts/gui/process-list.js",
 		"/scripts/gui/server-list.js"
