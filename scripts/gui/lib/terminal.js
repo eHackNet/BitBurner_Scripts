@@ -1,4 +1,4 @@
-import ToastManager from "/gui/lib/ToastManager.js"
+import ToastManager from "/scripts/gui/lib/ToastManager.js"
 
 
 /**
