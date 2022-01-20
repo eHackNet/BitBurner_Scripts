@@ -1,4 +1,4 @@
-import BaseComponent from "/gui/component/BaseComponent.js"
+import BaseComponent from "/scripts/gui/component/BaseComponent.js"
 
 const component = {
 	name: "ui-select",
