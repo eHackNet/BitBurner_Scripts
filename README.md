@@ -1,13 +1,12 @@
 # BitBurner_Scripts
 
-run boot.js
+run boot.js<br>
 
--[ Boot Script ]------------------------------------------------------
-./boot.js
-...terminal.js            // Custom Terminal Color Script
-...seqOne.js              // Sequence Script One: Hacking Status
-...seqTwo.js              // Sequence Script Two: Profit Status
-...stats.js               // Overview Custom Stats
-...stocks.js              // Stocks Status Script
-.../gui/process-list.js   // Install OptIns.js
------------------------------------------------------------------------
+-[ Runs Script: ]------------------------------------------------------<br>
+<b>...terminal.js</b>            // <i>Custom Terminal Color Script</i><br>
+<b>...seqOne.js</b>              // <i>Sequence Script One: Hacking Status</i><br>
+<b>...seqTwo.js</b>              // <i>Sequence Script Two: Profit Status</i><br>
+<b>...stats.js</b>               // <i>Overview Custom Stats</i><br>
+<b>...stocks.js</b>              // <i>Stocks Status Script</i><br>
+<b>.../gui/process-list.js</b>   // <i>Install OptIns.js</i><br>
+------------------------------------------------------------------------<br>
