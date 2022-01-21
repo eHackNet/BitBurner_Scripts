@@ -5,7 +5,6 @@ ns.exec("scripts/terminal.js", "home", 1);
 ns.disableLog("disableLog"); 
 ns.disableLog("exec");  
 ns.exec("scripts/seqOne.js", "home", 1);
-ns.exec("scripts/seqTwo.js", "home", 1);
 ns.exec("scripts/stats.js", "home", 1);
 ns.exec("scripts/stocks.js", "home", 1);
 //ns.exec("netmap.js", "home", 1);
@@ -15,8 +14,8 @@ ns.exec("gui/process-list.js", "home", 1);
 
 
 ns.tprintf("<red>  +------------------------------------------+</red>");
-ns.tprintf("<red>  |                                          |</red>")
-ns.tprintf("<red>  |         ☢️ BOOTING SYSTEM ☢️            |</red>")
+ns.tprintf("<red>  |                                          |</red>");
+ns.tprintf("<red>  |         ☢️ BOOTING SYSTEM ☢️            |</red>");
 ns.tprintf("<red>  |                                          |</red>");
 ns.tprintf("<red>  +------------------------------------------+</red>");
 ns.tprintf(">");
@@ -57,82 +56,7 @@ ns.tprintf(">");
 ns.tprintf("> Reading state information... <green>Done</green>");
 ns.tprintf(">");
 ns.tprintf("> Reading program list...");
-
-    const torCost = 200000;
-    var hasTorRouter = false;
-    while (true) {
-        if (hasTorRouter) {
-            break;
-        }
-        if (hasTor(ns)) {
-            ns.tprintf("> TOR Already Installed.");
-            hasTorRouter = true;
-        } else {
-            if (torCost <= getPlayerMoney(ns)) {
-                ns.tprintf("> TOR Purchased.");
-                ns.purchaseTor();
-            }
-        }
-        await ns.sleep(200);
-    }
-
-    function getPlayerMoney(ns) {
-        return ns.getServerMoneyAvailable("home");
-    }
-
-    function hasTor(ns) {
-        var homeNodes = ns.scan("home");
-        return homeNodes.includes("darkweb");
-    }
-
 ns.tprintf(">");
-
-const programNames = ["BruteSSH.exe", "FTPCrack.exe", "relaySMTP.exe", "HTTPWorm.exe", "SQLInject.exe", "DeepscanV1.exe", "DeepscanV2.exe", "Autolink.exe"];
-    const programCosts = [500000, 1500000, 5000000, 30000000, 250000000, 500000, 25000000, 1000000];
-    var hasAllPrograms = false;
-    while (true) {
-        if (hasAllPrograms) {
-            break;
-        }
-        if (!hasTor(ns)) {
-            await ns.sleep(2000);
-            continue;
-        }
-        var foundMissingProgram = false;
-        for (var i = 0; i < programNames.length; ++i) {
-            var prog = programNames[i];
-            if (hasProgram(ns, prog)) {
-                ns.tprintf("> " + programNames[i] + " is already installed.");
-                continue;
-            } else {
-                foundMissingProgram = true;
-                ns.tprintf("> " + programNames[i] + " is missing.");
-            }
-            var cost = programCosts[i];
-            if (cost <= getPlayerMoney(ns)) {
-                ns.purchaseProgram(prog);
-                ns.tprintf("> " + programNames[i] + " purchased.");
-            }
-        }
-        if (!foundMissingProgram) {
-            hasAllPrograms = true;
-        }
-        await ns.sleep(2000);
-    }
-
-
-    function getPlayerMoney(ns) {
-        return ns.getServerMoneyAvailable("home");
-    }
-
-    function hasProgram(ns, program) {
-        return ns.fileExists(program, "home");
-    }
-
-    function hasTor(ns) {
-        var homeNodes = ns.scan("home");
-        return homeNodes.includes("darkweb");
-    }
 ns.tprintf("> <green>Done</green>");
 ns.tprintf(">");
 ns.exec("scan.js", "home", 1);
