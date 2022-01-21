@@ -13,5 +13,5 @@ run boot.js<br>
 <b>.../scripts/seqOne.js</b>              // <i>Sequence Script One: Hacking Status</i><br>
 <b>.../scripts/stats.js</b>               // <i>Overview Custom Stats</i><br>
 <b>.../scripts/stocks.js</b>              // <i>Stocks Status Script</i><br>
-<b>.../scripts/gui/process-list.js</b>   // <i>Install OptIns.js</i><br>
+<b>.../scripts/gui/process-list.js</b>   // <i>Active Scripts</i><br>
 ------------------------------------------------------------------------<br>
