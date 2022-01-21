@@ -1,6 +1,6 @@
 /** @param {NS} ns **/
 export const processListPayloads = {
-	grow: ["./scripts/grow.script"],
-	hack: ["./scripts/hack.script"],
-	weaken: ["./scripts/weaken.script"]
+	grow: ["grow.script"],
+	hack: ["hack.script"],
+	weaken: ["weaken.script"]
 }
