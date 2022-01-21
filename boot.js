@@ -9,7 +9,7 @@ ns.exec("scripts/stats.js", "home", 1);
 ns.exec("scripts/stocks.js", "home", 1);
 //ns.exec("netmap.js", "home", 1);
 //ns.exec("gui/server-list.js", "home", 1);
-ns.exec("gui/process-list.js", "home", 1);
+ns.exec("scripts/gui/process-list.js", "home", 1);
 //ns.exec("/bb-vue/examples/0-getting-started.js", "home", 1);
 
 
@@ -59,7 +59,7 @@ ns.tprintf("> Reading program list...");
 ns.tprintf(">");
 ns.tprintf("> <green>Done</green>");
 ns.tprintf(">");
-ns.exec("scan.js", "home", 1);
+//ns.exec("scan.js", "home", 1);
 ns.tprintf(">");
 ns.tprintf("><white> The following packages will be executed:</white>");
 ns.tprintf("><yellow> js:</yellow> terminal.js stock.js stats.js");
@@ -97,27 +97,6 @@ ns.tprintf("> Setting up <white>process-list </white>... done.");
 ns.tprintf(">");
 ns.tprintf("> Processing triggers for <blue>hack();</blue> <blue>weaken();</blue> <blue>grow();</blue>");
 ns.tprintf(">");
-ns.tprintf("> <red>List of Available Scripts to run:</red>");
-ns.tprintf(">");
-ns.tprintf("> <red> Remeber MONITOR is Installed</red>");
-ns.tprintf("><italic> This script helps visualize the money and security of a server.</italic>");
-ns.tprintf("><white> USAGE:</white> <bold>run monitor.js SERVER_NAME</bold>");
-ns.tprintf(">");
-ns.tprintf("> <red> Remeber HACKNET is Installed</red>");
-ns.tprintf("><italic> This script helps automize the purchase of HackNet servers.</italic>");
-ns.tprintf("><white> USAGE:</white> <bold>run hacknet.script</bold>");
-ns.tprintf(">");
-ns.tprintf("> <red> Remeber NETMAP is Installed</red>");
-ns.tprintf("><italic> This script a map of servers with detail functions.</italic>");
-ns.tprintf("><white> USAGE:</white> <bold>run netmap.js</bold>");
-ns.tprintf(">");
-ns.tprintf("> <red> Remeber SERVER-LIST is Installed</red>");
-ns.tprintf("><italic> This script loads a map of servers to hack and install backdoors.</italic>");
-ns.tprintf("><white> USAGE:</white> <bold>run gui/server-list.js</bold>");
-ns.tprintf(">");
-ns.tprintf("> <red> Remeber DOCS is Installed</red>");
-ns.tprintf("><italic> This script loads a list of NS Functions.</italic>");
-ns.tprintf("><white> USAGE:</white> <bold>run docs.js h</bold>");
 ns.tprintf(">");
 ns.tprintf("")
 
