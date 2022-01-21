@@ -88,11 +88,22 @@ export async function main(ns) {
 
     let pad = servers.reduce((acc, elem) => Math.max(acc, elem.length), 0)
     
+		
+		
+
+	
+
+    
+    
 
 		if (cycle[0] >= 4) { cycle[0] = 0 }; cycle[0]++;//Speen
 
 		ns.clearLog();
-		
+		ns.print("WARNING ╠═════╣ PROFIT ╠═════════╗ HOST ╔════════╣");
+		for(let serv of serversProfit) {
+				ns.print(`INFO    ╠═════╣ ${(serv.profit.toFixed(2)+'').padEnd(6)} ║     ${serv.name.padEnd(pad)}  ║`);
+			}
+		ns.print("WARNING ╠═════╣ PROFIT ╠═════════╗ HOST ╔════════╣");
 		//ns.print("ERROR║  " + cycle[cycle[0]] + "  ╠══════════════════════════════════╣")
 		ns.print("WARNING ╠═══╦═╣ HOST ╠════════════════╗ TARGET ╔═╣");
 
@@ -109,7 +120,7 @@ export async function main(ns) {
 
 			ns.print("ERROR   ╠═══╝ Priority Servers       Balance     ║")
 
-			for (let i = 0; i < 14; i++) {
+			for (let i = 0; i < 7; i++) {
 
 				temp = targetList[i][1];
 
