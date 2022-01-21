@@ -1,71 +1,79 @@
+import { formatNumberShort, formatMoney, getNsDataThroughFile, getActiveSourceFiles } from '/scripts/helpers.js'
+
+const argsSchema = [
+    ['hide-stocks', false],
+];
+
+export function autocomplete(data, args) {
+    data.flags(argsSchema);
+    return [];
+}
+
 /** @param {NS} ns **/
-    
 export async function main(ns) {
-    ns.disableLog("disableLog");
-    ns.disableLog("sleep");
-    const doc = document; // This is expensive! (25GB RAM) Perhaps there's a way around it? ;)
+    const options = ns.flags(argsSchema);
+    const doc = eval('document');
     const hook0 = doc.getElementById('overview-extra-hook-0');
     const hook1 = doc.getElementById('overview-extra-hook-1');
+    let stkSymbols = null;
+    let dictSourceFiles = await getActiveSourceFiles(ns); // Find out what source files the user has unlocked
+    let playerInfo = (await getNsDataThroughFile(ns, 'ns.getPlayer()', '/scripts/Temp/player-info.txt'));
+    if (!options['hide-stocks'] && playerInfo.hasTixApiAccess) // Auto-disabled if we do not have the TSK API
+        stkSymbols = await getNsDataThroughFile(ns, `ns.stock.getSymbols()`, '/scripts/Temp/stock-symbols.txt');
+    // Main stats update loop
     while (true) {
         try {
             const headers = []
             const values = [];
 
-            const allStocks = getAllStocks(ns);
-            // keep a log of net worth change over time
-            const portfolioValue = getPortfolioValue(allStocks);
-            const cashValue = ns.getPlayer().money;
-            const totalValue = portfolioValue + cashValue;
-            
-            // Add script income per second
-            headers.push("Inc");
-            values.push(ns.getScriptIncome()[0].toPrecision(7) + 's');
-            // Add script exp gain rate per second
-            headers.push("Exp");
-            values.push(ns.getScriptExpGain().toPrecision(7) + 's');
-            // TODO: Add more neat stuff
-            headers.push("Stock:")
-            values.push(ns.nFormat(portfolioValue, "$0.000a"));
-            
-            // Now drop it into the placeholder elements
+            if (9 in dictSourceFiles) { // Section not relevant if you don't have access to hacknet servers
+                const hashes = await getNsDataThroughFile(ns, '[ns.hacknet.numHashes(), ns.hacknet.hashCapacity()]', '/scripts/Temp/hash-stats.txt')
+                if (hashes[1] > 0) {
+                    headers.push("Hashes");
+                    values.push(`${formatNumberShort(hashes[0], 3, 1)}/${formatNumberShort(hashes[1], 3, 1)}`);
+                }
+                // Detect and notify the HUD if we are liquidating
+                if (ns.ps("home").some(p => p.filename.includes('spend-hacknet-hashes') && (p.args.includes("--liquidate") || p.args.includes("-l")))) {
+                    headers.splice(1, 0, " ");
+                    values.push("Liquidating");
+                }
+            }
+
+            if (stkSymbols && !doc.getElementById("stock-display-1")) { // Don't add stocks if unavailable or the stockmaster HUD is active
+                const stkPortfolio = await getNsDataThroughFile(ns, JSON.stringify(stkSymbols) +
+                    `.map(sym => ({ sym, pos: ns.stock.getPosition(sym), ask: ns.stock.getAskPrice(sym), bid: ns.stock.getBidPrice(sym) }))` +
+                    `.reduce((total, stk) => total + stk.pos[0] * stk.bid + stk.pos[2] * (stk.pos[3] * 2 - stk.ask) -100000 * (stk.pos[0] + stk.pos[2] > 0 ? 1 : 0), 0)`,
+                    '/scripts/Temp/stock-portfolio-value.txt');
+                if (stkPortfolio > 0) { // Don't bother showing a section for stock if we aren't holding anything
+                    headers.push("Stock");
+                    values.push(formatMoney(stkPortfolio));
+                }
+            }
+            headers.push("ScrInc");
+            values.push(formatMoney(ns.getScriptIncome()[0], 3, 2) + '/sec');
+
+            headers.push("ScrExp");
+            values.push(formatNumberShort(ns.getScriptExpGain(), 3, 2) + '/sec');
+
+            if (2 in dictSourceFiles) { // Gang income is only relevant once gangs are unlocked
+                const gangInfo = await getNsDataThroughFile(ns, 'ns.gang.inGang() ? ns.gang.getGangInformation() : false', '/scripts/Temp/gang-stats.txt');
+                if (gangInfo !== false) {
+                    headers.push("Gang");
+                    values.push(formatMoney(gangInfo.moneyGainRate * 5, 3, 2) + '/sec');
+                }
+            }
+
+            const karma = ns.heart.break();
+            if (karma <= -9) {
+                headers.push("Karma");
+                values.push(formatNumberShort(karma, 3, 2));
+            }
+
             hook0.innerText = headers.join(" \n");
             hook1.innerText = values.join("\n");
-        } catch (err) { // This might come in handy later
+        } catch (err) { // Might run out of ram from time to time, since we use it dynamically
             ns.print("ERROR: Update Skipped: " + String(err));
         }
         await ns.sleep(1000);
     }
-}
-
-function getAllStocks(ns) {
-    // make a lookup table of all stocks and all their properties
-    const stockSymbols = ns.stock.getSymbols();
-    const stocks = {};
-    for (const symbol of stockSymbols) {
-
-        const pos = ns.stock.getPosition(symbol);
-        const stock = {
-            symbol: symbol,
-            forecast: ns.stock.getForecast(symbol),
-            volatility: ns.stock.getVolatility(symbol),
-            askPrice: ns.stock.getAskPrice(symbol),
-            bidPrice: ns.stock.getBidPrice(symbol),
-            maxShares: ns.stock.getMaxShares(symbol),
-            shares: pos[0],
-            sharesAvgPrice: pos[1],
-            sharesShort: pos[2],
-            sharesAvgPriceShort: pos[3]
-        };
-        stock.summary = `${stock.symbol}: ${stock.forecast.toFixed(3)} ± ${stock.volatility.toFixed(3)}`;
-        stocks[symbol] = stock;
-    }
-    return stocks;    
-}
-
-function getPortfolioValue(stocks) {
-    let value = 0;
-    for (const stock of Object.values(stocks)) {
-        value += stock.bidPrice * stock.shares - stock.askPrice * stock.sharesShort;
-    }
-    return value;
 }
