@@ -1,5 +1,11 @@
 # BitBurner_Scripts
 
+Install in /data/install.js<br>
+run install.js in /home/<br>
+<br>
+After installation run next code:<br>
+<br>
+<br>
 run boot.js<br>
 
 -[ Runs Script: ]------------------------------------------------------<br>
