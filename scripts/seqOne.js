@@ -120,7 +120,7 @@ export async function main(ns) {
 
 			ns.print("ERROR   ╠═══╝ Priority Servers       Balance     ║")
 
-			for (let i = 0; i < 7; i++) {
+			for (let i = 0; i < 6; i++) {
 
 				temp = targetList[i][1];
 
